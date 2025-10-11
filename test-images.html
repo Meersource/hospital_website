@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Test</title>
+</head>
+<body>
+    <h1>Testing Image Paths</h1>
+    
+    <h2>Direct image test:</h2>
+    <img src="/Assets/carousel/doctors.webp" alt="Test" style="width: 300px; height: 200px; border: 1px solid red;" />
+    
+    <h2>All carousel images:</h2>
+    <img src="/Assets/carousel/doctors.webp" alt="doctors" style="width: 200px; height: 150px; margin: 5px;" />
+    <img src="/Assets/carousel/doc_introment.webp" alt="doc_introment" style="width: 200px; height: 150px; margin: 5px;" />
+    <img src="/Assets/carousel/energency.webp" alt="energency" style="width: 200px; height: 150px; margin: 5px;" />
+    <img src="/Assets/carousel/doc3.webp" alt="doc3" style="width: 200px; height: 150px; margin: 5px;" />
+    <img src="/Assets/carousel/doc2.webp" alt="doc2" style="width: 200px; height: 150px; margin: 5px;" />
+    
+    <script>
+        // Test image loading
+        const images = [
+            '/Assets/carousel/doctors.webp',
+            '/Assets/carousel/doc_introment.webp',
+            '/Assets/carousel/energency.webp',
+            '/Assets/carousel/doc3.webp',
+            '/Assets/carousel/doc2.webp'
+        ];
+        
+        images.forEach(src => {
+            const img = new Image();
+            img.onload = () => console.log('✅ Loaded:', src);
+            img.onerror = () => console.error('❌ Failed to load:', src);
+            img.src = src;
+        });
+    </script>
+</body>
+</html>

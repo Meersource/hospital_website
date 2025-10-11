@@ -1,10 +1,14 @@
 'use client';
-
+import Image from 'next/image';
 import TopContactBar from '../components/TopContactBar';
 import Header from '../components/Header';
 import HeroCarousel from '../components/HeroCarousel';
+// import ImageDebug from '../components/ImageDebug';
 import Footer from '../components/Footer';
 import Link from 'next/link';
+import doc_introment from "../../public/Assets/carousel/doc3.webp";
+import digital_doc from "../../public/Assets/carousel/digital_doc.webp";
+
 
 export default function Home() {
   return (
@@ -13,6 +17,8 @@ export default function Home() {
       <Header currentPage="home" />
       
       <HeroCarousel />
+      
+    
 
       {/* Main Content Area */}
       <main className="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
@@ -25,6 +31,7 @@ export default function Home() {
           w-full lg:w-4/5 lg:mx-auto 
           lg:-mt-24 mb-12 
           grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12
+          
         ">
           {/* Left Section: Emergency Services (with Atomic Structure) */}
           <div>
@@ -224,13 +231,13 @@ export default function Home() {
             
             {/* Left Column: Image */}
             <div>
-              <img 
-                src="https://images.unsplash.com/photo-1599805096573-00e99d81d4b6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+              <Image 
+            src={doc_introment}
                 alt="Focused surgeon team in a clean operating room" 
                 className="rounded-xl shadow-lg w-full h-auto object-cover"
                 onError={(e) => {
                   e.target.onerror = null;
-                  e.target.src = 'https://placehold.co/600x400/0082c3/ffffff?text=Caring+Professionals';
+                  e.target.src = doc_introment;
                 }}
               />
             </div>
@@ -279,13 +286,13 @@ export default function Home() {
 
             {/* Right Column: Image */}
             <div className="order-first md:order-last">
-              <img 
-                src="https://images.unsplash.com/photo-1629904863898-e04f0332f146?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+              <Image 
+                src={digital_doc}
                 alt="Telemedicine consultation on a tablet with a doctor" 
                 className="rounded-xl shadow-lg w-full h-auto object-cover"
                 onError={(e) => {
                   e.target.onerror = null;
-                  e.target.src = 'https://placehold.co/600x400/00b8d4/ffffff?text=Digital+Health';
+                  e.target.src = {digital_doc};
                 }}
               />
             </div>

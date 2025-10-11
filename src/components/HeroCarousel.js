@@ -1,121 +1,141 @@
 'use client';
+// import Image from "next/image";
+import Slider from "react-slick";
+import dynamic from "next/dynamic";
 
-import { useState, useEffect } from 'react';
+// const Slider = dynamic(() => import("react-slick"), { ssr: false });
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function HeroCarousel() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [intervalId, setIntervalId] = useState(null);
-
   const slides = [
-    {
-      image: "https://images.unsplash.com/photo-1588776856002-c94c92131975?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      alt: "Modern Hospital Exterior"
-    },
-    {
-      image: "https://images.unsplash.com/photo-1551076801-09aeef844342?q=80&w=1853&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      alt: "Doctor Patient Consultation"
-    },
-    {
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d10?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      alt: "Operating Room Technology"
-    },
-    {
-      image: "https://images.unsplash.com/photo-1586717791828-3f99a03a4660?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      alt: "Hospital Teamwork"
-    },
-    {
-      image: "https://images.unsplash.com/photo-1579684385150-bf47d6e87900?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      alt: "Hospital Patient Care"
-    }
+    { image: "/Assets/carousel/doctors.webp", alt: "Modern Hospital Exterior" },
+    { image: "/Assets/carousel/doc_introment.webp", alt: "Doctor Patient Consultation" },
+    { image: "/Assets/carousel/energency.webp", alt: "Operating Room Technology" },
+    { image: "/Assets/carousel/doc3.webp", alt: "Hospital Teamwork" },
+    { image: "/Assets/carousel/doc2.webp", alt: "Hospital Patient Care" },
   ];
 
-  const showSlide = (index) => {
-    if (index < 0) {
-      index = slides.length - 1;
-    } else if (index >= slides.length) {
-      index = 0;
-    }
-    setCurrentSlide(index);
-  };
+  const imagePaths = [
+    "/Assets/carousel/doctors.webp",
+    "/Assets/carousel/doc_introment.webp", 
+    "/Assets/carousel/energency.webp",
+    "/Assets/carousel/doc3.webp",
+    "/Assets/carousel/doc2.webp"
+  ];
 
-  const nextSlide = () => {
-    showSlide(currentSlide + 1);
-    startAutoAdvance();
-  };
+  // Debug: Log the slide data
 
-  const prevSlide = () => {
-    showSlide(currentSlide - 1);
-    startAutoAdvance();
+  const overlayColorRgba = "rgba(43, 84, 145, 0.6)";
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    fade: true,
+    cssEase: "linear",
+    arrows: true,
+    prevArrow: <CustomPrevArrow />,
+    nextArrow: <CustomNextArrow />,
+    responsive: [
+      {     
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+          dots: false,
+        }
+      }
+    ]
   };
-
-  const startAutoAdvance = () => {
-    if (intervalId) clearInterval(intervalId);
-    const newIntervalId = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 3000);
-    setIntervalId(newIntervalId);
-  };
-
-  useEffect(() => {
-    startAutoAdvance();
-    return () => {
-      if (intervalId) clearInterval(intervalId);
-    };
-  }, []);
 
   return (
-    <section className="relative overflow-hidden w-full h-[60vh] md:h-[75vh] shadow-xl mb-12">
-      <div className="absolute inset-0">
-        
+    <section className="relative overflow-hidden w-full h-[60vh] md:h-[80vh] shadow-xl mb-12">
+      <Slider {...settings}>
         {slides.map((slide, index) => (
-          <div 
-            key={index}
-            className={`slide ${index === currentSlide ? 'active-slide' : ''}`}
-          >
-            <img 
-              src={slide.image}
-              alt={slide.alt}
-              className="w-full h-full object-cover"
-              onError={(e) => {
-                e.target.onerror = null;
-                e.target.src = 'https://placehold.co/1600x900/cccccc/000000?text=Image+Unavailable';
-              }}
-            />
-            <div className="absolute inset-0 bg-gray-900 bg-opacity-40 flex items-center justify-center p-4">
+          <div key={index} className="relative w-full h-[60vh] md:h-[80vh] bg-gray-300">
+<img
+  src={slide.image}
+  alt={slide.alt}
+  className="w-full h-full object-cover"
+  onLoad={() => console.log("Loaded:", slide.image)}
+  onError={(e) => {
+    console.error("Image failed to load:", slide.image);
+    e.target.src = "https://placehold.co/1600x900?text=Image+Not+Found";
+  }}
+/>
+
+            <div className="absolute inset-0  bg-opacity-40 flex items-center justify-center p-4"
+              style={{ backgroundColor: overlayColorRgba }}
+            >
               <div className="text-center text-white max-w-4xl mx-auto">
                 <h2 className="text-4xl sm:text-5xl font-extrabold mb-2 leading-tight">
-                  Welcome to<br />
+                  Welcome to
+                  <br />
                   Doctors Hospital & Medical Center
                 </h2>
                 <p className="text-sm sm:text-base max-w-2xl mx-auto font-medium opacity-90 mt-2">
-                  where you can find immediate care, guidance & healthcare services, from routine checkups to emergency surgeries and procedures.
+                  where you can find immediate care, guidance & healthcare
+                  services, from routine checkups to emergency surgeries and
+                  procedures.
                 </p>
               </div>
             </div>
           </div>
         ))}
-
-        {/* Previous Button */}
-        <button 
-          onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 transition duration-300 z-30 focus:outline-none focus:ring-4 focus:ring-accent-cyan"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
-          </svg>
-        </button>
-
-        {/* Next Button */}
-        <button 
-          onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 transition duration-300 z-30 focus:outline-none focus:ring-4 focus:ring-accent-cyan"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
-          </svg>
-        </button>
-        
-      </div>
+      </Slider>
     </section>
   );
 }
+
+// Custom arrow components
+function CustomPrevArrow({ onClick }) {
+  return (
+    <button
+      onClick={onClick}
+      className="absolute left-4 top-1/2 -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 transition duration-300 z-30"
+      aria-label="Previous slide"
+    >
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          d="M15 19l-7-7 7-7"
+        />
+      </svg>
+    </button>
+  );
+}
+
+function CustomNextArrow({ onClick }) {
+  return (
+    <button
+      onClick={onClick}
+      className="absolute right-4 top-1/2 -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 transition duration-300 z-30"
+      aria-label="Next slide"
+    >
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          d="M9 5l7 7-7 7"
+        />
+      </svg>
+    </button>
+  );
+}
+
