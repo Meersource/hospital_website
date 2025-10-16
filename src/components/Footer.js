@@ -7,7 +7,7 @@ export default function Footer() {
         
         {/* Column 1: Logo/Mission */}
         <div className="col-span-2 md:col-span-1">
-          <h5 className="text-2xl font-extrabold text-primary-blue mb-4">Family<span className="text-accent-cyan">Hospital</span></h5>
+          <h5 className="text-2xl font-extrabold text-primary-blue mb-4">Cheema<span className="text-accent-cyan">Hospital</span>Complex</h5>
           <p className="text-sm text-gray-400">
             Committed to providing high-quality, patient-centered healthcare services with integrity and respect.
           </p>
@@ -18,7 +18,7 @@ export default function Footer() {
           <h5 className="text-lg font-semibold mb-4 border-b border-gray-700 pb-2">Quick Links</h5>
           <ul className="space-y-2 text-sm">
             <li><Link href="/" className="text-gray-400 hover:text-white transition duration-150">Home</Link></li>
-            <li><Link href="#" className="text-gray-400 hover:text-white transition duration-150">Careers</Link></li>
+            <li><Link href="/about" className="text-gray-400 hover:text-white transition duration-150">About</Link></li>
             <li><Link href="/appointment" className="text-gray-400 hover:text-white transition duration-150">Patient Portal</Link></li>
           </ul>
         </div>
@@ -37,9 +37,9 @@ export default function Footer() {
         <div>
           <h5 className="text-lg font-semibold mb-4 border-b border-gray-700 pb-2">Contact</h5>
           <p className="text-sm text-gray-400 space-y-2">
-            <p>123 Medical Ave, City, State</p>
-            <p>Phone: (123) 456-7890</p>
-            <p>Email: info@healthcare.com</p>
+            <p>Near Canal bridge Daska, Punjab Pakistan</p>
+            <p>Phone: (052) 6617877</p>
+            <p>Email: info@cheemahospitalcomplex.com</p>
           </p>
         </div>
       </div>

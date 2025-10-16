@@ -1,8 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import Footer from '../../components/Footer';
+import Header from '../../components/Header';
+import TopContactBar from '../../components/TopContactBar';
+import { db } from '../../lib/firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 export default function AppointmentPage() {
   const [showModal, setShowModal] = useState(false);
@@ -17,7 +20,7 @@ export default function AppointmentPage() {
     setShowModal(true);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
@@ -29,14 +32,35 @@ export default function AppointmentPage() {
     if (captchaInput.value.trim() === '12' || captchaInput.value.trim().toLowerCase() === 'twelve') {
       if (captchaError) captchaError.classList.add('hidden');
       
-      // Show success message
-      showCustomMessage(
-        `Thank You, ${data.full_name}!`, 
-        `Your appointment request has been successfully submitted. We will contact you at ${data.phone} to confirm the date and time.`,
-        'success'
-      );
-        
-      form.reset(); // Clear the form
+      try {
+        await addDoc(collection(db, 'appointments'), {
+          full_name: data.full_name || '',
+          phone: data.phone || '',
+          email: data.email || '',
+          specialty: data.specialty || '',
+          doctor: data.doctor || '',
+          date: data.date || '',
+          time: data.time || '',
+          status: data.status || '',
+          message: data.message || '',
+          createdAt: serverTimestamp(),
+        });
+
+        showCustomMessage(
+          `Thank You, ${data.full_name}!`, 
+          `Your appointment request has been received. We will contact you at ${data.phone} to confirm.`,
+          'success'
+        );
+
+        form.reset();
+      } catch (err) {
+        console.error('Error saving appointment:', err);
+        showCustomMessage(
+          'Submission Failed',
+          'We could not submit your request right now. Please try again later.',
+          'error'
+        );
+      }
     } else {
       if (captchaError) captchaError.classList.remove('hidden');
       captchaInput.focus();
@@ -46,21 +70,8 @@ export default function AppointmentPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Header (Simple and Focused) */}
-      <header className="bg-white shadow-md sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-center items-center">
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 rounded-full bg-accent-cyan flex items-center justify-center shadow-lg">
-              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-              </svg>
-            </div>
-            <h1 className="text-xl sm:text-2xl font-bold text-gray-900">
-              Online<span className="text-primary-blue font-extrabold ml-0.5">Booking</span>
-            </h1>
-          </Link>
-        </div>
-      </header>
+      <TopContactBar />
+      <Header currentPage="appointment" />
       
       {/* MAIN APPOINTMENT CONTENT */}
       <div id="appointment-view" className="view flex-grow">

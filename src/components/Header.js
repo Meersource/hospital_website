@@ -45,7 +45,7 @@ export default function Header({ currentPage = 'home' }) {
           </div>
           {/* Hospital Name (smaller size as requested) */}
           <h1 className="text-xl sm:text-2xl font-bold text-gray-900">
-            Family<span className="text-primary-blue font-extrabold ml-0.5">Hospital</span>
+            Cheema<span className="text-primary-blue font-extrabold ml-0.5">Hospital</span>Complex
           </h1>
         </Link>
 
@@ -63,10 +63,10 @@ export default function Header({ currentPage = 'home' }) {
         <nav className="hidden md:flex space-x-4 lg:space-x-6 items-center text-sm lg:text-base">
           <Link href="/" className={getLinkClass('home')}>Home</Link>
           <Link href="/about" className={getLinkClass('about')}>About Us</Link>
-          <Link href="#" className="text-gray-700 hover:text-primary-blue font-semibold transition duration-150 whitespace-nowrap">Care & Services</Link>
+          <Link href="/services" className={getLinkClass('services')}>Care & Services</Link>
           {/* <Link href="#" className="text-gray-700 hover:text-primary-blue font-semibold transition duration-150 whitespace-nowrap">Patient & Families</Link>
           <Link href="#" className="text-gray-700 hover:text-primary-blue font-semibold transition duration-150 whitespace-nowrap">Medical Center</Link> */}
-          <Link href="#" className="text-gray-700 hover:text-primary-blue font-semibold transition duration-150 whitespace-nowrap">Career</Link>
+          {/* <Link href="#" className="text-gray-700 hover:text-primary-blue font-semibold transition duration-150 whitespace-nowrap">Career</Link> */}
           <Link href="/contact" className={getLinkClass('contact')}>Contact Us</Link>
           {/* Optional Portal Link */}
           {/* <Link href="/appointment" className="text-primary-blue border-2 border-primary-blue px-4 py-2 rounded-full hover:bg-primary-blue hover:text-white transition duration-150 font-bold whitespace-nowrap">Portal</Link> */}
@@ -77,10 +77,10 @@ export default function Header({ currentPage = 'home' }) {
       <div className={`${mobileMenuOpen ? 'block' : 'hidden'} md:hidden bg-white border-t border-gray-100 py-2 shadow-inner`}>
         <Link href="/" className={getMobileLinkClass('home')}>Home</Link>
         <Link href="/about" className={getMobileLinkClass('about')}>About Us</Link>
-        <Link href="#" className="block px-4 py-3 text-gray-700 hover:bg-bg-light transition duration-100">Care & Services</Link>
+        <Link href="/services" className={getMobileLinkClass('services')}>Care & Services</Link>
         {/* <Link href="#" className="block px-4 py-3 text-gray-700 hover:bg-bg-light transition duration-100">Patient & Families</Link>
         <Link href="#" className="block px-4 py-3 text-gray-700 hover:bg-bg-light transition duration-100">Medical Center</Link> */}
-        <Link href="#" className="block px-4 py-3 text-gray-700 hover:bg-bg-light transition duration-100">Career</Link>
+        {/* <Link href="#" className="block px-4 py-3 text-gray-700 hover:bg-bg-light transition duration-100">Career</Link> */}
         <Link href="/contact" className={getMobileLinkClass('contact')}>Contact Us</Link>
         <Link href="/appointment" className="block text-white bg-primary-blue mx-4 my-3 py-3 rounded-full text-center font-bold shadow-md">Book Appointment</Link>
       </div>

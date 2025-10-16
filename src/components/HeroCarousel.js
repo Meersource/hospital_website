@@ -74,7 +74,7 @@ export default function HeroCarousel() {
                 <h2 className="text-4xl sm:text-5xl font-extrabold mb-2 leading-tight">
                   Welcome to
                   <br />
-                  Doctors Hospital & Medical Center
+                  Cheema Hospital Complex
                 </h2>
                 <p className="text-sm sm:text-base max-w-2xl mx-auto font-medium opacity-90 mt-2">
                   where you can find immediate care, guidance & healthcare

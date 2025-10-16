@@ -1,14 +1,23 @@
 'use client';
 
 import { useState } from 'react';
+import FormInput from '../../components/FormInput';
 import TopContactBar from '../../components/TopContactBar';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import { db } from '../../lib/firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 export default function ContactPage() {
   const [statusMessage, setStatusMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,21 +26,23 @@ export default function ContactPage() {
     setErrorMessage('');
     setIsSubmitting(true);
     
-    // Simulate an API call or message processing time
-    setTimeout(() => {
-      const isSuccessful = Math.random() > 0.1; // 90% chance of success
+    try {
+      await addDoc(collection(db, 'contacts'), {
+        name: form.name,
+        email: form.email,
+        subject: form.subject,
+        message: form.message,
+        createdAt: serverTimestamp(),
+      });
 
-      if (isSuccessful) {
-        // Success: Show message and reset form
-        setStatusMessage("Thank you for your message! We will be in touch soon.");
-        e.target.reset();
-      } else {
-        // Failure: Show error message
-        setErrorMessage("There was an error sending your message. Please check your network and try again.");
-      }
-      
+      setStatusMessage('Thank you for your message! We will be in touch soon.');
+      setForm({ name: '', email: '', subject: '', message: '' });
+    } catch (err) {
+      console.error('Contact submit failed:', err);
+      setErrorMessage('There was an error sending your message. Please try again later.');
+    } finally {
       setIsSubmitting(false);
-    }, 1000); // 1 second delay
+    }
   };
 
   return (
@@ -73,7 +84,7 @@ export default function ContactPage() {
                     <div className="text-3xl text-accent-cyan">🚨</div>
                     <div>
                       <p className="text-lg font-bold text-gray-900">Emergency 24/7</p>
-                      <p className="text-primary-blue font-extrabold text-xl">(042) 111 223 377</p>
+                      <p className="text-primary-blue font-extrabold text-xl">(052) 6617877</p>
                       <p className="text-sm text-gray-600">For life-threatening situations.</p>
                     </div>
                   </div>
@@ -83,7 +94,7 @@ export default function ContactPage() {
                     <div className="text-3xl text-primary-blue">📞</div>
                     <div>
                       <p className="text-lg font-bold text-gray-900">General Information</p>
-                      <p className="text-primary-blue font-extrabold text-xl">(123) 456-7890</p>
+                      <p className="text-primary-blue font-extrabold text-xl">(052) 6617877</p>
                       <p className="text-sm text-gray-600">For general inquiries and departments.</p>
                     </div>
                   </div>
@@ -94,7 +105,7 @@ export default function ContactPage() {
                     <div>
                       <p className="text-lg font-bold text-gray-900">Our Location</p>
                       <p className="text-gray-700 font-semibold text-base">
-                        123 Medical Avenue, Block A, City, State 10001
+                      Near Canal bridge Daska, Punjab Pakistan
                       </p>
                       <p className="text-sm text-gray-600">Find us easily on the map below.</p>
                     </div>
@@ -105,7 +116,7 @@ export default function ContactPage() {
                     <div className="text-3xl text-accent-cyan">📧</div>
                     <div>
                       <p className="text-lg font-bold text-gray-900">Email Us</p>
-                      <p className="text-gray-700 font-semibold text-base">info@healthcare.com</p>
+                      <p className="text-gray-700 font-semibold text-base">info@cheemahospitalcomplex.com</p>
                       <p className="text-sm text-gray-600">We aim to reply within 24 hours.</p>
                     </div>
                   </div>
@@ -119,36 +130,51 @@ export default function ContactPage() {
                 
                 <form id="contact-form" className="space-y-4" onSubmit={handleSubmit}>
                   {/* Name */}
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
-                    <input type="text" id="name" name="name" required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-primary-blue focus:border-primary-blue transition duration-150 shadow-sm"
-                      placeholder="John Doe" />
-                  </div>
+                  <FormInput
+                    id="name"
+                    name="name"
+                    label="Your Name"
+                    value={form.name}
+                    onChange={handleChange}
+                    required
+                    placeholder="John Doe"
+                  />
 
                   {/* Email */}
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Your Email</label>
-                    <input type="email" id="email" name="email" required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-primary-blue focus:border-primary-blue transition duration-150 shadow-sm"
-                      placeholder="email@example.com" />
-                  </div>
+                  <FormInput
+                    id="email"
+                    name="email"
+                    type="email"
+                    label="Your Email"
+                    value={form.email}
+                    onChange={handleChange}
+                    required
+                    placeholder="email@example.com"
+                  />
 
                   {/* Subject */}
-                  <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
-                    <input type="text" id="subject" name="subject" required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-primary-blue focus:border-primary-blue transition duration-150 shadow-sm"
-                      placeholder="Inquiry about billing/services" />
-                  </div>
+                  <FormInput
+                    id="subject"
+                    name="subject"
+                    label="Subject"
+                    value={form.subject}
+                    onChange={handleChange}
+                    required
+                    placeholder="Inquiry about billing/services"
+                  />
 
                   {/* Message */}
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Your Message</label>
-                    <textarea id="message" name="message" rows="4" required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-primary-blue focus:border-primary-blue transition duration-150 shadow-sm"
-                      placeholder="Type your message here..."></textarea>
-                  </div>
+                  <FormInput
+                    id="message"
+                    name="message"
+                    label="Your Message"
+                    textarea
+                    rows={4}
+                    value={form.message}
+                    onChange={handleChange}
+                    required
+                    placeholder="Type your message here..."
+                  />
 
                   {/* Submit Button */}
                   <button type="submit" disabled={isSubmitting}

@@ -90,7 +90,7 @@ export default function Home() {
                 <svg className="w-6 h-6 mr-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                 </svg>
-                Call: <span className="text-white ml-2">(042) 111 223 377</span>
+                Call: <span className="text-white ml-2">(052) 6617877</span>
               </p>
             </div>
           </div>
@@ -199,25 +199,25 @@ export default function Home() {
               
               {/* Counter 1: Patients Treated */}
               <div className="text-center p-2 rounded-lg"> 
-                <p className="text-4xl sm:text-5xl font-extrabold text-white leading-none">200000+</p>
+                <p className="text-3xl sm:text-5xl font-extrabold text-white leading-none">200000+</p>
                 <p className="text-base text-white mt-2 font-semibold">Patients Treated</p>
               </div>
               
               {/* Counter 2: Surgeries Performed */}
               <div className="text-center p-2 rounded-lg">
-                <p className="text-4xl sm:text-5xl font-extrabold text-white leading-none">10000+</p>
+                <p className="text-3xl sm:text-5xl font-extrabold text-white leading-none">10000+</p>
                 <p className="text-base text-white mt-2 font-semibold">Surgeries Performed</p>
               </div>
 
               {/* Counter 3: Doctors & Specialists */}
               <div className="text-center p-2 rounded-lg">
-                <p className="text-4xl sm:text-5xl font-extrabold text-white leading-none">500+</p>
+                <p className="text-3xl sm:text-5xl font-extrabold text-white leading-none">100+</p>
                 <p className="text-base text-white mt-2 font-semibold">Doctors & Specialists</p>
               </div>
               
               {/* Counter 4: Years of Service */}
               <div className=" text-center p-2 rounded-lg">
-                <p className="text-4xl sm:text-5xl font-extrabold text-white leading-none">20+</p>
+                <p className="text-3xl sm:text-5xl font-extrabold text-white leading-none">20+</p>
                 <p className="text-base text-white mt-2 font-semibold">Years of Trusted Service</p>
               </div>
               
