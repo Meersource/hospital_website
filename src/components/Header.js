@@ -34,7 +34,7 @@ export default function Header({ currentPage = 'home' }) {
     <header className="bg-white shadow-trust sticky top-0 z-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
         
-        {/* Logo/Brand (Circular Image + Family Hospital Text) */}
+       
         <Link href="/" className="flex items-center space-x-2">
           {/* Circular Logo Icon */}
           <div className="w-9 h-9 rounded-full bg-accent-cyan flex items-center justify-center shadow-lg">

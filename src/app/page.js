@@ -304,7 +304,7 @@ export default function Home() {
           <div className="w-full bg-white p-10 lg:p-16 rounded-2xl shadow-xl border-t-4 border-primary-blue">
             
             <h3 className="text-3xl font-bold text-gray-900 text-center mb-10">
-              Why Choose Family Hospital?
+              Why Choose Cheema Hospital Complex?
             </h3>
             
             {/* 3-Column Grid: 1 column on mobile/small screens, 3 on medium/large */}

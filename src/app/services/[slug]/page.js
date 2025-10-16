@@ -45,7 +45,7 @@ export default function ServiceDetailPage({ params }) {
                 className="rounded-xl shadow-lg w-full h-auto object-cover"
                 onError={(e) => {
                   e.target.onerror = null;
-                  e.target.src = 'https://placehold.co/800x500/0082c3/ffffff?text=Family+Hospital';
+                  e.target.src = 'https://placehold.co/800x500/0082c3/ffffff?text=Cheema+Hospital+Complex';
                 }}
               />
             </div>

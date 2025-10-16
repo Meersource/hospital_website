@@ -8,8 +8,43 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Family Hospital - Quality Healthcare Services",
-  description: "Family Hospital provides comprehensive healthcare services with 24/7 emergency care, specialist consultations, and advanced medical technology.",
+  metadataBase: new URL('https://www.cheemahospitalcomplex.com'),
+  title: {
+    default: 'Cheema Hospital Complex — Quality Healthcare Services',
+    template: '%s | Cheema Hospital Complex',
+  },
+  description:
+    'Cheema Hospital Complex provides comprehensive healthcare services with 24/7 emergency care, specialist consultations, and advanced medical technology in Daska, Punjab. Best hospitak in Daska',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    url: '/',
+    siteName: 'Cheema Hospital Complex',
+    title: 'Cheema Hospital Complex — Quality Healthcare Services',
+    description:
+      'Comprehensive healthcare in Daska: eyes specialist, emergency, surgery, cardiology, pediatrics, diagnostics and more.',
+    images: [
+      {
+        url: '/file.svg',
+        width: 1200,
+        height: 630,
+        alt: 'Cheema Hospital Complex',
+      },
+    ],
+    locale: 'en_PK',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cheema Hospital Complex — Quality Healthcare Services',
+    description:
+      'Comprehensive healthcare in Daska: emergency, eyes specialist, surgery, cardiology, pediatrics, diagnostics and more.',
+    images: ['/file.svg'],
+  },
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({ children }) {

@@ -19,7 +19,7 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-gray-900 bg-opacity-60"></div>
           <div className="relative z-10 text-center text-white p-4">
             <h2 className="text-4xl sm:text-5xl font-extrabold mb-2">About Us</h2>
-            <p className="text-lg opacity-90">Learn more about Family Hospital and our commitment to healthcare excellence.</p>
+            <p className="text-lg opacity-90">Learn more about Cheema Hospital Complex and our commitment to healthcare excellence.</p>
           </div>
         </section>
 
@@ -32,7 +32,7 @@ export default function AboutPage() {
             <div className="mb-12">
               <h3 className="text-3xl font-bold text-gray-900 mb-6 text-center">Our Mission</h3>
               <p className="text-lg text-gray-700 text-center max-w-4xl mx-auto leading-relaxed">
-                At Family Hospital, we are committed to providing exceptional healthcare services with compassion, 
+                At Cheema Hospital Complex, we are committed to providing exceptional healthcare services with compassion, 
                 integrity, and excellence. Our mission is to improve the health and well-being of our community 
                 through accessible, high-quality medical care that puts patients and their families at the center 
                 of everything we do.
@@ -79,7 +79,7 @@ export default function AboutPage() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <div>
                   <p className="text-gray-700 mb-4 text-lg leading-relaxed">
-                    Family Hospital was established over two decades ago with a simple yet profound vision: 
+                    Cheema Hospital Complex was established over two decades ago with a simple yet profound vision: 
                     to create a healthcare facility that treats every patient like family. What started as a 
                     small community clinic has grown into a comprehensive medical center serving thousands of 
                     patients annually.
@@ -96,11 +96,11 @@ export default function AboutPage() {
                 <div>
                   <img 
                     src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-                    alt="Family Hospital building exterior" 
+                    alt="Cheema Hospital Complex building exterior" 
                     className="rounded-xl shadow-lg w-full h-auto object-cover"
                     onError={(e) => {
                       e.target.onerror = null;
-                      e.target.src = 'https://placehold.co/600x400/0082c3/ffffff?text=Family+Hospital';
+                      e.target.src = 'https://placehold.co/600x400/0082c3/ffffff?text=Cheema+Hospital+Complex';
                     }}
                   />
                 </div>
@@ -108,11 +108,11 @@ export default function AboutPage() {
             </div>
 
             {/* Leadership Team */}
-            <div className="mb-12">
+            {/* <div className="mb-12">
               <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">Leadership Team</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                {/* Team Member 1 */}
+               
                 <div className="text-center p-6 bg-white rounded-xl shadow-md border border-gray-200">
                   <div className="w-24 h-24 bg-primary-blue rounded-full mx-auto mb-4 flex items-center justify-center">
                     <span className="text-white text-2xl font-bold">JS</span>
@@ -125,7 +125,7 @@ export default function AboutPage() {
                   </p>
                 </div>
 
-                {/* Team Member 2 */}
+              
                 <div className="text-center p-6 bg-white rounded-xl shadow-md border border-gray-200">
                   <div className="w-24 h-24 bg-primary-blue rounded-full mx-auto mb-4 flex items-center justify-center">
                     <span className="text-white text-2xl font-bold">MJ</span>
@@ -138,7 +138,6 @@ export default function AboutPage() {
                   </p>
                 </div>
 
-                {/* Team Member 3 */}
                 <div className="text-center p-6 bg-white rounded-xl shadow-md border border-gray-200">
                   <div className="w-24 h-24 bg-primary-blue rounded-full mx-auto mb-4 flex items-center justify-center">
                     <span className="text-white text-2xl font-bold">SW</span>
@@ -151,13 +150,88 @@ export default function AboutPage() {
                   </p>
                 </div>
               </div>
+            </div> */}
+
+            {/* Our Doctors (Cards with image + hover animation) */}
+            <div className="mb-12">
+              <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">Leadership Team</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {/* Doctor Card 1 */}
+                <div className="group bg-white rounded-2xl shadow-md overflow-hidden border border-gray-200">
+                  <div className="relative overflow-hidden">
+                    <img
+                      src="https://images.unsplash.com/photo-1550831107-1553da8c8464?q=80&w=2070&auto=format&fit=crop"
+                      alt="Dr. Ayesha Khan"
+                      className="w-full h-80 object-cover transform transition-transform duration-500 ease-out group-hover:scale-105 will-change-transform"
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = 'https://placehold.co/800x500/0082c3/ffffff?text=Doctor';
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
+                  </div>
+                  <div className="p-5">
+                    <h4 className="text-xl font-bold text-gray-900">Dr. Ayesha Khan</h4>
+                    <p className="text-accent-cyan font-semibold mb-2">Consultant Cardiologist</p>
+                    <p className="text-gray-600 text-sm group-hover:text-gray-700 transition-colors duration-300">
+                      Specializes in interventional cardiology with a focus on patient-centered preventive care.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Doctor Card 2 */}
+                <div className="group bg-white rounded-2xl shadow-md overflow-hidden border border-gray-200">
+                  <div className="relative overflow-hidden">
+                    <img
+                      src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?q=80&w=2069&auto=format&fit=crop"
+                      alt="Dr. Omar Farooq"
+                      className="w-full h-80 object-cover transform transition-transform duration-500 ease-out group-hover:scale-105 will-change-transform"
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = 'https://placehold.co/800x500/0082c3/ffffff?text=Doctor';
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
+                  </div>
+                  <div className="p-5">
+                    <h4 className="text-xl font-bold text-gray-900">Dr. Omar Farooq</h4>
+                    <p className="text-accent-cyan font-semibold mb-2">Orthopedic Surgeon</p>
+                    <p className="text-gray-600 text-sm group-hover:text-gray-700 transition-colors duration-300">
+                      Expert in minimally invasive joint procedures and sports injury management.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Doctor Card 3 */}
+                <div className="group bg-white rounded-2xl shadow-md overflow-hidden border border-gray-200">
+                  <div className="relative overflow-hidden">
+                    <img
+                      src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=2069&auto=format&fit=crop"
+                      alt="Dr. Sara Qureshi"
+                      className="w-full h-80 object-cover transform transition-transform duration-500 ease-out group-hover:scale-105 will-change-transform"
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = 'https://placehold.co/800x500/0082c3/ffffff?text=Doctor';
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
+                  </div>
+                  <div className="p-5">
+                    <h4 className="text-xl font-bold text-gray-900">Dr. Sara Qureshi</h4>
+                    <p className="text-accent-cyan font-semibold mb-2">Pediatrician</p>
+                    <p className="text-gray-600 text-sm group-hover:text-gray-700 transition-colors duration-300">
+                      Dedicated to child wellness and preventive pediatrics for infants to adolescents.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Call to Action */}
             <div className="text-center bg-gradient-to-r from-primary-blue to-accent-cyan p-8 rounded-2xl text-white">
               <h3 className="text-2xl font-bold mb-4">Ready to Experience Our Care?</h3>
               <p className="text-lg mb-6 opacity-90">
-                Join thousands of satisfied patients who trust Family Hospital with their healthcare needs.
+                Join thousands of satisfied patients who trust Cheema Hospital Complex with their healthcare needs.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/appointment" className="bg-white text-primary-blue font-bold py-3 px-8 rounded-full shadow-lg hover:bg-opacity-90 transition duration-300">
