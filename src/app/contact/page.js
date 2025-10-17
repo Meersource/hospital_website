@@ -5,8 +5,6 @@ import FormInput from '../../components/FormInput';
 import TopContactBar from '../../components/TopContactBar';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import { db } from '../../lib/firebase';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 export default function ContactPage() {
   const [statusMessage, setStatusMessage] = useState('');
@@ -27,13 +25,16 @@ export default function ContactPage() {
     setIsSubmitting(true);
     
     try {
-      await addDoc(collection(db, 'contacts'), {
-        name: form.name,
-        email: form.email,
-        subject: form.subject,
-        message: form.message,
-        createdAt: serverTimestamp(),
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
       });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || 'Failed to submit');
+      }
 
       setStatusMessage('Thank you for your message! We will be in touch soon.');
       setForm({ name: '', email: '', subject: '', message: '' });

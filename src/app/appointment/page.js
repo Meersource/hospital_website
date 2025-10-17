@@ -4,8 +4,6 @@ import { useState } from 'react';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import TopContactBar from '../../components/TopContactBar';
-import { db } from '../../lib/firebase';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 export default function AppointmentPage() {
   const [showModal, setShowModal] = useState(false);
@@ -33,18 +31,26 @@ export default function AppointmentPage() {
       if (captchaError) captchaError.classList.add('hidden');
       
       try {
-        await addDoc(collection(db, 'appointments'), {
-          full_name: data.full_name || '',
-          phone: data.phone || '',
-          email: data.email || '',
-          specialty: data.specialty || '',
-          doctor: data.doctor || '',
-          date: data.date || '',
-          time: data.time || '',
-          status: data.status || '',
-          message: data.message || '',
-          createdAt: serverTimestamp(),
+        const res = await fetch('/api/appointment', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            specialty: data.specialty || '',
+            doctor: data.doctor || '',
+            date: data.date || '',
+            time: data.time || '',
+            full_name: data.full_name || '',
+            phone: data.phone || '',
+            email: data.email || '',
+            status: data.status || '',
+            message: data.message || '',
+          }),
         });
+
+        if (!res.ok) {
+          const payload = await res.json().catch(() => ({}));
+          throw new Error(payload.error || 'Failed to submit');
+        }
 
         showCustomMessage(
           `Thank You, ${data.full_name}!`, 
