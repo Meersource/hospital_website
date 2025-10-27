@@ -206,7 +206,8 @@ export default function ContactPage() {
                 <div className="w-full h-80 rounded-xl shadow-xl border-2 border-primary-blue/30 overflow-hidden">
                   {/* Actual Google Maps Embed for a generic medical center location */}
                   <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.923869279768!2d-73.98779608459468!3d40.74844077932889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2598f4164b8e7%3A0xc3f6a297e2c9f53e!2sNew%20York%20Presbyterian%20Hospital!5e0!3m2!1sen!2sus!4v1632345678901!5m2!1sen!2sus"
+                    // src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.923869279768!2d-73.98779608459468!3d40.74844077932889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2598f4164b8e7%3A0xc3f6a297e2c9f53e!2sNew%20York%20Presbyterian%20Hospital!5e0!3m2!1sen!2sus!4v1632345678901!5m2!1sen!2sus"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1685.7166475965535!2d74.3422808!3d32.3270755!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391edb37c6950b53%3A0x139785e7db59ac24!2sCheema%20Hospital%20Complex%2CLifecare%20institute%20of%20Paramedical%20sciences!5e0!3m2!1sen!2s!4v1761565607062!5m2!1sen!2s"
                     width="100%" 
                     height="100%" 
                     style={{border:0}} 
