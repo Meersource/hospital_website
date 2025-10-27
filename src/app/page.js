@@ -107,36 +107,36 @@ export default function Home() {
             
             {/* Service Card 1: Cardiology */}
             <div className="bg-white p-6 rounded-xl shadow-trust text-center border-t-4 border-primary-blue hover:shadow-xl transition duration-300">
-              <div className="text-primary-blue text-4xl mb-3">⚕️</div>
-              <p className="font-bold text-lg text-gray-900">Cardiology</p>
-              <p className="text-sm text-gray-500 mt-1">Heart health specialists.</p>
+              <div className="text-primary-blue text-4xl mb-3">🏥</div>
+              <p className="font-bold text-lg text-gray-900">Pharmacy</p>
+              <p className="text-sm text-gray-500 mt-1">Hospital Pharmacy Services are available 24/7.</p>
             </div>
             
             {/* Service Card 2: Neurology */}
             <div className="bg-white p-6 rounded-xl shadow-trust text-center border-t-4 border-accent-cyan hover:shadow-xl transition duration-300">
               <div className="text-accent-cyan text-4xl mb-3">🧠</div>
-              <p className="font-bold text-lg text-gray-900">Neurology</p>
-              <p className="text-sm text-gray-500 mt-1">Brain & nervous system care.</p>
+              <p className="font-bold text-lg text-gray-900">CT-Scan</p>
+              <p className="text-sm text-gray-500 mt-1">Spiral CT-Scan available for all sorts of Trauma's, providing detailed diagnostic imaging..</p>
             </div>
             
             {/* Service Card 3: Pediatrics */}
             <div className="bg-white p-6 rounded-xl shadow-trust text-center border-t-4 border-primary-blue hover:shadow-xl transition duration-300">
               <div className="text-primary-blue text-4xl mb-3">👶</div>
-              <p className="font-bold text-lg text-gray-900">Pediatrics</p>
-              <p className="text-sm text-gray-500 mt-1">Dedicated child health.</p>
+              <p className="font-bold text-lg text-gray-900">Labor Room</p>
+              <p className="text-sm text-gray-500 mt-1">Labor Room is equipped with Electro Medical equipment and dedicated staff for patient & Baby Care.</p>
             </div>
             
             {/* Service Card 4: Orthopedics */}
             <div className="bg-white p-6 rounded-xl shadow-trust text-center border-t-4 border-accent-cyan hover:shadow-xl transition duration-300">
-              <div className="text-accent-cyan text-4xl mb-3">🦴</div>
-              <p className="font-bold text-lg text-gray-900">Orthopedics</p>
-              <p className="text-sm text-gray-500 mt-1">Joint & bone surgery.</p>
+              <div className="text-accent-cyan text-4xl mb-3">👀</div>
+              <p className="font-bold text-lg text-gray-900">Eye Operation Theater</p>
+              <p className="text-sm text-gray-500 mt-1">Fully Equipped Eye Operation Theater with separate Operation Theater for Optic and Vitreous Surgeries..</p>
             </div>
             
             {/* Service Card 5: Diagnostics */}
             <div className="bg-white p-6 rounded-xl shadow-trust text-center border-t-4 border-primary-blue hover:shadow-xl transition duration-300">
               <div className="text-primary-blue text-4xl mb-3">🔬</div>
-              <p className="font-bold text-lg text-gray-900">Diagnostics</p>
+              <p className="font-bold text-lg text-gray-900">Laboratory</p>
               <p className="text-sm text-gray-500 mt-1">Advanced lab services.</p>
             </div>
             
@@ -156,32 +156,18 @@ export default function Home() {
 
             {/* Service Card 8: Surgical Services */}
             <div className="bg-white p-6 rounded-xl shadow-trust text-center border-t-4 border-accent-cyan hover:shadow-xl transition duration-300">
-              <div className="text-accent-cyan text-4xl mb-3">🔪</div>
-              <p className="font-bold text-lg text-gray-900">Surgical Services</p>
-              <p className="text-sm text-gray-500 mt-1">Advanced operating procedures.</p>
+              <div className="text-accent-cyan text-4xl mb-3">🛏</div>
+              <p className="font-bold text-lg text-gray-900">Anaesthesia</p>
+              <p className="text-sm text-gray-500 mt-1">Latest Anaesthesia Machine equipped with ventilators and monitors for patient safety during procedures..</p>
             </div>
 
-            {/* Service Card 9: Women's Health */}
-            <div className="bg-white p-6 rounded-xl shadow-trust text-center border-t-4 border-primary-blue hover:shadow-xl transition duration-300">
-              <div className="text-primary-blue text-4xl mb-3">👩‍🍼</div>
-              <p className="font-bold text-lg text-gray-900">Women's Health</p>
-              <p className="text-sm text-gray-500 mt-1">Maternity and gynecological care.</p>
-            </div>
-
-            {/* Service Card 10: Heart & Vascular Services */}
+            {/* Service Card 10: Heart & Vascular Services
             <div className="bg-white p-6 rounded-xl shadow-trust text-center border-t-4 border-accent-cyan hover:shadow-xl transition duration-300">
-              <div className="text-accent-cyan text-4xl mb-3">🫀</div>
-              <p className="font-bold text-lg text-gray-900">Heart & Vascular</p>
-              <p className="text-sm text-gray-500 mt-1">Cardiac and blood vessel treatments.</p>
-            </div>
+              <div className="text-accent-cyan text-4xl mb-3">👨🏻‍🔬</div>
+              <p className="font-bold text-lg text-gray-900">Phacoemulsifier Millennium</p>
+              <p className="text-sm text-gray-500 mt-1">Latest Millennium Laser Cataract Surgery Phacoemulsification Machine for precise cataract removal.</p>
+            </div> */}
 
-            {/* Service Card 11: Gastrointestinal Health */}
-            <div className="bg-white p-6 rounded-xl shadow-trust text-center border-t-4 border-primary-blue hover:shadow-xl transition duration-300">
-              <div className="text-primary-blue text-4xl mb-3">🍎</div>
-              <p className="font-bold text-lg text-gray-900">Gastro Health</p>
-              <p className="text-sm text-gray-500 mt-1">Digestive system and nutrition care.</p>
-            </div>
-            
           </div>
         </section>
 

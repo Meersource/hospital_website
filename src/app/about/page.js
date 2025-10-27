@@ -4,6 +4,8 @@ import TopContactBar from '../../components/TopContactBar';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Link from 'next/link';
+import { teamMembers } from '@/data/services';
+import LeadershipCard from '@/components/LeadershipCard';
 
 export default function AboutPage() {
   return (
@@ -107,57 +109,17 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Leadership Team */}
-            {/* <div className="mb-12">
-              <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">Leadership Team</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-               
-                <div className="text-center p-6 bg-white rounded-xl shadow-md border border-gray-200">
-                  <div className="w-24 h-24 bg-primary-blue rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-white text-2xl font-bold">JS</span>
-                  </div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">Dr. Jane Smith</h4>
-                  <p className="text-accent-cyan font-semibold mb-3">Chief Medical Officer</p>
-                  <p className="text-gray-600 text-sm">
-                    Board-certified physician with over 15 years of experience in internal medicine 
-                    and healthcare administration.
-                  </p>
-                </div>
-
-              
-                <div className="text-center p-6 bg-white rounded-xl shadow-md border border-gray-200">
-                  <div className="w-24 h-24 bg-primary-blue rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-white text-2xl font-bold">MJ</span>
-                  </div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">Dr. Michael Johnson</h4>
-                  <p className="text-accent-cyan font-semibold mb-3">Director of Surgery</p>
-                  <p className="text-gray-600 text-sm">
-                    Renowned surgeon specializing in minimally invasive procedures with over 20 years 
-                    of surgical experience.
-                  </p>
-                </div>
-
-                <div className="text-center p-6 bg-white rounded-xl shadow-md border border-gray-200">
-                  <div className="w-24 h-24 bg-primary-blue rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-white text-2xl font-bold">SW</span>
-                  </div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">Sarah Williams</h4>
-                  <p className="text-accent-cyan font-semibold mb-3">Chief Nursing Officer</p>
-                  <p className="text-gray-600 text-sm">
-                    Experienced nursing leader dedicated to patient care excellence and nursing staff 
-                    development.
-                  </p>
-                </div>
-              </div>
-            </div> */}
-
             {/* Our Doctors (Cards with image + hover animation) */}
             <div className="mb-12">
               <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">Leadership Team</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {
+                  teamMembers.map((member) => (
+                    <LeadershipCard key={member.name} {...member} />
+                  ))
+                }
                 {/* Doctor Card 1 */}
-                <div className="group bg-white rounded-2xl shadow-md overflow-hidden border border-gray-200">
+                {/* <div className="group bg-white rounded-2xl shadow-md overflow-hidden border border-gray-200">
                   <div className="relative overflow-hidden">
                     <img
                       src="https://images.unsplash.com/photo-1550831107-1553da8c8464?q=80&w=2070&auto=format&fit=crop"
@@ -177,10 +139,10 @@ export default function AboutPage() {
                       Specializes in interventional cardiology with a focus on patient-centered preventive care.
                     </p>
                   </div>
-                </div>
+                </div> */}
 
                 {/* Doctor Card 2 */}
-                <div className="group bg-white rounded-2xl shadow-md overflow-hidden border border-gray-200">
+                {/* <div className="group bg-white rounded-2xl shadow-md overflow-hidden border border-gray-200">
                   <div className="relative overflow-hidden">
                     <img
                       src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?q=80&w=2069&auto=format&fit=crop"
@@ -200,10 +162,10 @@ export default function AboutPage() {
                       Expert in minimally invasive joint procedures and sports injury management.
                     </p>
                   </div>
-                </div>
+                </div> */}
 
                 {/* Doctor Card 3 */}
-                <div className="group bg-white rounded-2xl shadow-md overflow-hidden border border-gray-200">
+                {/* <div className="group bg-white rounded-2xl shadow-md overflow-hidden border border-gray-200">
                   <div className="relative overflow-hidden">
                     <img
                       src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=2069&auto=format&fit=crop"
@@ -223,7 +185,7 @@ export default function AboutPage() {
                       Dedicated to child wellness and preventive pediatrics for infants to adolescents.
                     </p>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
 

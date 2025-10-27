@@ -50,7 +50,7 @@ export default function ServiceDetailPage({ params }) {
               />
             </div>
             <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Comprehensive {service.name}</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">{service.name}</h2>
               <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-3">
                 {service.heroDescription}
               </p>
